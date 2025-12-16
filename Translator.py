@@ -73,6 +73,11 @@ def translate():
         })
     except Exception as e:
         return jsonify({"error": "Both Microsoft and Google failed: " + str(e)})
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({
+        "status":  "healthy"
 
+    })
 if __name__ == "__main__":
     app.run(debug=True)
